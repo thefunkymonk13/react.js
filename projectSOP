@@ -1,0 +1,78 @@
+BACKEND (server)
+1.) Install Node or check version:
+  node --version
+2.) Install npm or check version:
+  npm --version
+3.) Create root directory for project
+  mkdir <projectName>
+4.) Navigate to root directory:
+  cd <projectName>
+5.) Create package.json file:
+  npm init -y
+6.) Install Express:
+  npm install express
+7.) Create .gitignore file
+8.) Create your app file
+  app.js
+  projectname.js
+9.) Change main property in package.json to match the app file name used in the previous step
+10.) Start the server:
+  node app.js
+  or
+  node projectname.js
+11.) Navigate browser to http://localhost:3000
+12.) Make sure you have GIT:
+   git --version
+13.) Initialize Git repository:
+  git init
+14.) Add files you don't want in Git to .gitignore file
+15.) To add all of your other files to Git:
+  git add -A
+16.) Commit those changes:
+  git commit -m "Initial commit."
+  make meaningful commit messages
+17.) Create a directory to store modules:
+  lib
+18.) Create file in lib:
+  lib/fileName.js
+19.) Externalize credentials in a JSON file:
+  .credentials.development.json
+  {
+  "cookieSecret": "...your cookie secret goes here"
+20.) Create a file:
+  config.js
+21.) Add credentials to .gitignore file
+  .credentials.*
+22.) Import credentials into your application:
+  const { credentials } = require('./config')
+23.) Install cookie-parser middleware:
+  npm install cookie-parser
+24.) Include cookie-parser middleware:
+  const cookieParser = require('cookie-parser')
+  app.use(cookieParser(credentials.cookieSecret))
+25.) You can now set a cookie or a signed cookie anywhere you have access to a response object:
+  res.cookie('monster', 'nom nom')
+  res.cookie('signed_monster', 'nom nom', { signed: true })
+26.) Retrieve the value of a cookie sent from the client by accessing the cookie or signedCookie properties of the request object:
+  const monster = req.cookies.monster
+  const signedMonster = req.signedCookies.signed_monster
+27.) Delete a cookie:
+  res.clearCookie('monster')
+28.) 
+
+FRONTEND (client)
+1.) Install Yarn or check for updates: https://yarnpkg.com/getting-started/install
+2.)
+  a.) Initialize yarn in your project:  
+    yarn init -2 
+      or to create a react app:
+    yarn create react-app client
+  b.) Using npx:
+    npx create-react-app <filename>
+3.) Start your React app server:
+  yarn start
+  or:
+  npm start
+4.) Install the DOM version of React Router:
+  yarn add react-router-dom
+5.)
