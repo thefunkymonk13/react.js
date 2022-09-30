@@ -31,6 +31,8 @@ BACKEND (server)
 16.) Commit those changes:
   git commit -m "Initial commit."
   make meaningful commit messages
+
+// Cookies
 17.) Create a directory to store modules:
   lib
 18.) Create file in lib:
@@ -60,6 +62,15 @@ BACKEND (server)
   res.clearCookie('monster')
 28.) 
 
+
+// User authentication
+1.) Set up a Facebook app
+
+
+
+
+
+
 FRONTEND (client)
 1.) Install Yarn or check for updates: https://yarnpkg.com/getting-started/install
 2.)
@@ -70,9 +81,14 @@ FRONTEND (client)
   b.) Using npx:
     npx create-react-app <filename>
 3.) Start your React app server:
+   cd to filename 
+   
+   then:
+
   yarn start
   or:
   npm start
 4.) Install the DOM version of React Router:
   yarn add react-router-dom
+  npm install react-router-dom
 5.)
