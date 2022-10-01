@@ -37,30 +37,7 @@ BACKEND (server)
   lib
 18.) Create file in lib:
   lib/fileName.js
-19.) Externalize credentials in a JSON file:
-  .credentials.development.json
-  {
-  "cookieSecret": "...your cookie secret goes here"
-20.) Create a file:
-  config.js
-21.) Add credentials to .gitignore file
-  .credentials.*
-22.) Import credentials into your application:
-  const { credentials } = require('./config')
-23.) Install cookie-parser middleware:
-  npm install cookie-parser
-24.) Include cookie-parser middleware:
-  const cookieParser = require('cookie-parser')
-  app.use(cookieParser(credentials.cookieSecret))
-25.) You can now set a cookie or a signed cookie anywhere you have access to a response object:
-  res.cookie('monster', 'nom nom')
-  res.cookie('signed_monster', 'nom nom', { signed: true })
-26.) Retrieve the value of a cookie sent from the client by accessing the cookie or signedCookie properties of the request object:
-  const monster = req.cookies.monster
-  const signedMonster = req.signedCookies.signed_monster
-27.) Delete a cookie:
-  res.clearCookie('monster')
-28.) 
+
 
 
 // User authentication
