@@ -1,0 +1,12 @@
+1.) Install yarn globally with npm:
+  npm install -g yarn
+  
+ To install a specific package with yarn, run:
+  yarn add package-name
+  
+ To remove a dependency run:
+  yarn remove package-name
+ 
+ If you ever find a project that contains a yarn.lock file, that project uses yarn
+ 
+ 
