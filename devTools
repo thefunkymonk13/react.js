@@ -1,0 +1,2 @@
+- Once installed you will be able to see which sites are using React
+- When you open developer tools there will be a new tab visible called React. Clicking on that will show all of the components that make up the current page
