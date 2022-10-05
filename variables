@@ -1,0 +1,44 @@
+The const keyword:
+-A constant is a variable that cannot be overwritten
+-Once declared you cannot change its value
+
+ex.) const pizza = true;
+
+The let keyword:
+-With the let keyword we can scope a variable to any code block. Using let protects the value of the global variable
+
+ex.)
+  var topic = "javascript";
+  
+  if (topic) {
+    let topic = "React";
+    console.log("block", topic); // block React
+   }
+   
+   console.log("global", topic); // global javascript
+   
+   Another area where curly braces don't block off a variable's scope is in for loops:
+  
+ ex.)
+  var div, container = document.getElementById("container");
+  
+  for (var i = 0; i < 5; i++) {
+  div = document.createElement("div");
+  div.onclick = function() {
+    alert("This is box #" + i);
+  };
+  container.appendChild(div);
+  }
+  
+Declaring the loop counter i with let instead of var does block off the scope of i. Now clicking on any box will display the value for i that was scoped to the loop
+iteration
+
+const container = document.getElementById("container");
+  
+  for (let i = 0; i < 5; i++) {
+  div = document.createElement("div");
+  div.onclick = function makeBox() {
+    alert("This is box #" + i);
+  };
+  container.appendChild(div);
+  }
