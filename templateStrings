@@ -1,0 +1,22 @@
+-Provide an alternative to string concatenation
+-Allow us to insert variables into a string
+-AKA:
+  -Template literals
+  -String templates
+
+With a template we can create one string and insert the variable values by surrounding them with ${}
+
+Ex.)
+
+const lastName = "Reilly";
+const firstName = "Michael";
+const middleName = "Edward";
+
+
+console.log(`${lastName}, ${firstName} ${middleName}`);
+
+Any Javascript that returns a value can be added to a template string between the ${} in a template string
+
+Template strings honor whitespace making it easier to draft up email templates, code examples, or anything else that contains whitespace. You can have a string
+that spans multiple lines without breaking your code:
+
