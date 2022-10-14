@@ -1,0 +1,9 @@
+rfc then enter creates: 
+
+import React from 'react' // creates an object named react that contains methods necessary to use the React library
+
+export default function <component name>() {
+  return (
+    <div>Untitled-1</div>
+  )
+}
