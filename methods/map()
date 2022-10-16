@@ -1,0 +1,44 @@
+-Used to iterate over each item of a list in order to return a new version of each item
+
+Example:
+
+const numbers = [1, 2, 3, 4];
+
+const exponentialNumbers = numbers.map(function (number) {
+  return number * number;
+});
+
+console.log(exponentialNumbers);
+// [1, 4, 9, 16]
+
+React Example:
+
+import "./styles.css";
+
+const list = [
+  {
+    title: 'React',
+  },
+  {
+    title: 'Not react',
+  },
+];
+
+export default function App() {
+  return (
+    <div className="App">
+      <h1>My Hacker Stories</h1>
+      
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+
+    <hr />
+
+    <ul>
+      {list.map(function (item) {
+        return <li>{item.title}</li>;
+      })}
+    </ul>
+    </div>
+  );
+}
