@@ -1,0 +1,9 @@
+# Runs the application in http://localhost:3000
+npm start
+
+# Runs the tests
+npm test
+
+# Builds the application for production
+npm run build
+
