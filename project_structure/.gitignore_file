@@ -1,0 +1,8 @@
+Displays all files and folders that shouldn't be added to your git repository.
+
+When using git these files should only be located in your local project
+
+Node_modules is an example of a folder
+
+It is enough to share your package.json file with others so they can install dependencies on their end with npm install without your entire dependency
+folder.
