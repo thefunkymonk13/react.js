@@ -1,0 +1,4 @@
+Holds development files such as public/index.html. The index file is displayed on localhost:3000 when the app is in development or on a domain that is hosted
+elsewhere.
+
+The default setup handles relating this index.html with all the JavaScript from src/ folder
