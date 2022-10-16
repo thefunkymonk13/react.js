@@ -1,0 +1,14 @@
+label attributes:
+-htmlFor
+
+input attributes:
+-id
+-className
+-type
+-placeholder
+
+
+Example:
+
+<label htmlFor="search">Search: </label>
+<input id="search" type="text" />
