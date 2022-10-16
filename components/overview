@@ -1,0 +1,10 @@
+* A component has to start with a capital letter or it isn't treated as a component in React
+
+-React uses PascalCase.
+
+-There are various types of components:
+  -Function components
+  
+
+example:
+
