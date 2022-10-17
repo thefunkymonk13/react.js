@@ -1,1 +1,37 @@
+-Adding handlers in JSX in the declarative way.
 
+Step 1.) Use a block body so that we can add implementation details prior to the return statement:
+
+ex.) 
+
+const Search = () => {
+  // perform a task in between
+  
+  return (
+  <div>
+      <label htmlFor='search'>Search: </label>
+      <input id="search" type="text" />
+    </div>
+  );
+  };
+
+Step 2.) Define a function which can either be a function declaration or an arrow function expression, for the change event of the input field. In React
+this is called an event handler
+
+ex.)
+
+const Search = () => {
+  const handleChange = (event) => {
+    // synthetic event
+  console.log(event);
+  // value of target (here: element)
+  console.log(event.target.value);
+  };
+  
+  return (
+  <div>
+      <label htmlFor='search'>Search: </label>
+      <input id="search" type="text" onChange={handleChange} />
+    </div>
+  );
+  };
