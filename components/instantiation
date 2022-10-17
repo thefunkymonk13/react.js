@@ -1,0 +1,2 @@
+-A react component only has one declaration but can have multiple instances, where it is used in the application
+-You can create as many component instances as you want as long as you have a component declaration
