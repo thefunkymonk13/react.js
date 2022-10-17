@@ -1,0 +1,19 @@
+You add a form with React like any other element:
+
+function MyForm() {
+  return (
+    <form>
+      <label>Enter your name:
+        <input type="text" />
+      </label>
+    </form>
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MyForm />);
+
+This will work as normal, the form will submit and the page will refresh.
+
+But this is generally not what we want to happen in React.
+
+We want to prevent this default behavior and let React control the form.
