@@ -1,0 +1,54 @@
+-It is possible to use standard function declaration for components
+
+ex.) 
+
+function List() {
+  return (
+    <ul>
+      {list.map(function (item) {
+        return <li key={item.objectID}> 
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+         </li>;
+      })}
+    </ul>
+  );
+}
+
+-It is also possible to use arrow functions for more concise usage
+
+ex.)
+
+const List = () => {
+  return (
+    <ul>
+      {list.map(function (item) {
+        return <li key={item.objectID}> 
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+         </li>;
+      })}
+    </ul>
+  );
+  
+  -If an arrow function's only purpose is to return a value and doesn't have any business logic in between, you can remove the block body (curly braces)
+  of the function.
+  
+  -In a concise body, an implicit return statement is attached so you can remove the return statement:
+  
+  ex.)
+  
+  const addOne = (count) =>
+    count + 1;
+    
+  const addOne = (count) => count + 1;
+  
+};
