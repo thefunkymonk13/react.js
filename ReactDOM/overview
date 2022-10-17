@@ -1,0 +1,8 @@
+-React DOM is usually used once in a React application to hook React into the native HTML world. Open the public/index.html file on the side and spot the
+HTML element where the id attribute equals "root". That's exactly the element where React inserts itself into the HTML to bootstrap the entire
+React application - starting with the App component.
+
+-React DOM is everything that's needed to integrate React into any website which uses HTML. There is usually only one ReactDOM.createRoot() call in your
+application. If you happen to work on a legacy application that used something other than React before, you may see multiple ReactDOM() calls, because
+only certain areas of the application are powered by React.
+
