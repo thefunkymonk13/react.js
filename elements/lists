@@ -1,1 +1,22 @@
+-Every React element in a list should have a key assigned to it. The key is an HTML attribute and should be a stable identifier. 
+-When using keys, React can efficiently exchange the changed items. When not using keys, React may update the list inefficiently.
 
+Ex.) 
+    <ul>
+      {list.map(function (item) {
+        return ( <li key={item.objectID}> {item.title} </li>;
+      })}
+    </ul>
+
+-As a last resort you can use the index of the item in the list too. It should be avoided because it comes with the same rendering performance issues as
+not using a key.
+
+ex.)
+  <ul>
+      {list.map(function (item, index) {
+        return (
+        <li key={index}> 
+          {item.title} 
+        </li>;
+      })}
+    </ul>
