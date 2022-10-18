@@ -1,1 +1,4 @@
 
+
+-The useState function is called a React Hook. You can have as many useState hooks as you want in one or multiple components whereas state can be anything
+from a JavaScript string to a more complex data structure.
