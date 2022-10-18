@@ -1,0 +1,40 @@
+-The concept in a nutshell: we pass a function from parent component to a child component via props; we call this function in the child component, but
+have the actual implementation of the called function in the parent component. Essentially when an event handler is passed as props from a parent 
+component to its child component, it becomes a callback handler.
+
+-A callback handler gets introduced as an event handler (A) is passed as a function in props to another component (B), is executed there as a callback 
+handler (C), and
+calls back to the place it was introduced (D).
+
+ex.)
+
+// A
+const handleSearch = (event) => {
+  // D
+  console.log(event.target.value);
+  };
+  
+  return (
+  <div>
+  <h1>My Hacker Stories</h1>
+  
+  {/* // B */}
+  <Search onSearch={handleSearch} />
+  
+  <hr />
+  
+  <List list={stories}/>
+    </div>
+  );
+}
+
+const Search = (props) => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+  
+  const handleChange = (event) => {
+  setSearchTerm(event.target.value);
+  };
+  
+  // C
+  props.onSearch(event);
+  };
