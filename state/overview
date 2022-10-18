@@ -1,1 +1,28 @@
+-React State introduces a mutable data structure. These stateful values get instantiated in a React component as so called state, can be passed with props
+as a vehicle down to child components, and can also get mutated by using a function to modify the state.
 
+-State is used to change information over time
+
+Following use case:
+
+The user types text into an html input field and wants to see the information (state) displayed next to it.
+
+const Search = () => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  const handleChange = (event) => {
+  setSearchTerm(event.target.value);
+  };
+
+  return (
+  <div>
+      <label htmlFor='search'>Search: </label>
+      <input id="search" type="text" onChange={handleChange} />
+    <p>
+      Searching for <strong>{searchTerm}</strong>
+    </p>
+    
+
+    </div>
+  );
+  };
