@@ -1,0 +1,34 @@
+-The useState method tells React that we want to have a stateful value which changes over time. Whenever this stateful value changes, the affected 
+components will re-render to use it.
+
+-The useState function is called a React Hook. You can have as many useState hooks as you want in one or multiple components whereas state can be anything
+from a JavaScript string to a more complex data structure.
+
+-The useState method takes an initial state as an argument and will return an array with two entries: The first entry represents the current state.
+The second entry is a function to update this state. A state updater function.
+
+Syntax.)
+
+const [value, setValue] = React.useState('')
+
+where:
+value= state
+setValue= state updater function
+React.useState(''= initial state
+
+This works with the event handler function. The handlers logic uses the event's value of the target and the state updater function to set the updated state
+
+ex.)
+
+const handleChange = (event) => {
+  setValue(event.target.value);
+};
+
+Full example
+
+const Search = () => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  const handleChange = (event) => {
+  setSearchTerm(event.target.value);
+  };
