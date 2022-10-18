@@ -1,1 +1,99 @@
+-By using props we can pass variables as information from one component to another component.
 
+-The most important fact about props is that it's not allowed to change them because they should be treated as an immutable data structure
+
+-Props can only be passed from a parent to a child component and not vice versa
+
+ex.)
+
+1.) Refactor the App component's function from concise to block body in order to declare the list prior to the return statement:
+
+const App = () => {
+  const stories = [
+  {
+  title: 'React',
+  url: 'reactjs.org',
+  author: 'Jordan Walke',
+  num_comments: 3,
+  points: 4,
+  objectID: 0,
+},
+{
+  title: 'Redux',
+  url: 'redux.js.org',
+  author: 'Dan Abramov, Andrew Clark',
+  num_comments: 2,
+  points: 5,
+  objectID: 1,
+},
+];
+  
+return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+    <Search />
+
+    <hr />
+
+    <List />
+
+    </div>
+  );
+}
+
+2.) Use React props to pass the list of items to the List component.
+
+return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+    <Search />
+
+    <hr />
+
+    <List list={stories}/> // added list={stories}
+
+    </div>
+  );
+}
+
+3.) Retrieve the list from the List component's function signature by using a parameter:
+
+const List = (props) => (
+    <ul>
+      {props.list.map((item) => (
+        <li key={item.objectID}> 
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+         </li>
+      ))}
+    </ul>
+  );
+  
+4.) Extract an item from the List component and pass each item in the map() methods callback function to this new component:
+
+ex.) 
+
+const List = (props) => (
+    <ul>
+      {props.list.map((item) => (
+        <Item key={item.objectID} item={item} /> 
+      ))}
+    </ul>
+  );
+  
+  const Item = (props) => (
+  <li>
+  <span>
+          <a href={props.item.url}>{props.item.title}</a>
+        </span>
+        <span>{props.item.author}</span>
+        <span>{props.item.num_comments}</span>
+        <span>{props.item.points}</span>
+         </li>
+  );
