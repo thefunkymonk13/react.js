@@ -1,1 +1,52 @@
+The process of moving state from one component to another. 
+
+Move the state from the Search component to the App component
+Pass the state updater function to the search component as a callback handler and use it to update the state when a user types into the input field
+Then use the new state in the app component to filter() stories before they are passed to the List component:
+
+const [searchTerm, setSearchTerm] = React.useState('');
+
+const handleSearch = (event) => {
+  setSearchTerm(event.target.value);
+};
+
+return (
+  <div>
+    <h1>My Hacker Stories</h1>
+
+    <Search onSearch={handleSearch} />
+
+    <hr />
+
+    <List list={stories} />
+  </div>
+);
+};
+
+const Search = (props) => (
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" onChange={props.onSearch} />
+  </div>
+);
+
+Managing the search state in the App component we can filter the stories with the stateful searchTerm before passing them as list prop to the List
+component:
+
+const searchedStories = stories.filter(function (story) {
+  return story.title.includes(searchTerm);
+});
+
+
+<List list={searchedStories} />
+
+The filter() method could be made more concise by using an arrow function with an immediate return:
+
+const searchedStories = stories.filter((story) =>
+  story.title.includes(searchTerm)
+ );
+ 
+ There is a problem with the filter() method being case sensitive. Here's how to fix it:
+ story.title.toLowerCase().includes(searchTerm.toLowerCase())
+ 
 
