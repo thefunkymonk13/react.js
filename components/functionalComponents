@@ -1,0 +1,7 @@
+Function components and props- Function components can receive information via props.
+
+To access props, give your function component a parameter named props. Within the function body. you can access the props using this pattern:
+
+props.propertyName
+
+You don't have to use the this keyword
