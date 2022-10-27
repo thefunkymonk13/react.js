@@ -1,0 +1,94 @@
+we can use the State Hook to manage the value of any primitive data type and even data collections like arrays and objects!
+
+Have a look at the following function component. What data type does this state variable hold? Boolean
+
+import React, { useState } from 'react';
+ 
+function ToggleLoading() {
+  const [isLoading, setIsLoading] = useState();
+ 
+  return (
+    <div>
+      <p>The data is {isLoading ? 'Loading' : 'Not Loading'}</p>
+      <button onClick={() => setIsLoading(true)}>
+        Turn Loading On
+      </button>
+      <button onClick={() => setIsLoading(false)}>
+        Turn Loading Off
+      </button>
+    </div>
+  );
+}
+
+This code works just fine as is, but what if we want our component to start off with isLoading set to true?
+
+To initialize our state with any value we want, we simply pass the initial value as an argument to the useState() function call.
+
+const [isLoading, setIsLoading] = useState(true);
+
+If we don’t pass an initial value when calling useState(), then the current value of the state during the first render will be undefined. 
+Often, this is perfectly fine for the machines, but it can be unclear to the humans reading our code. So, we prefer to explicitly initialize our state. 
+If we don’t have the value needed during the first render, we can explicitly pass null instead of just passively leaving the value as undefined.
+
+Use State Setter Outside of JSX
+Let’s see how to manage the changing value of a string as a user types into a text input field:
+
+import React, { useState } from 'react';
+ 
+export default function EmailTextInput() {
+  const [email, setEmail] = useState('');
+  const handleChange = (event) => {
+    const updatedEmail = event.target.value;
+    setEmail(updatedEmail);
+  }
+ 
+  return (
+    <input value={email} onChange={handleChange} />
+  );
+}
+
+The JSX input tag has an event listener called onChange. This event listener calls an event handler each time the user types something in this element. 
+In the example above, our event handler is defined inside of the definition for our function component, but outside of our JSX. Earlier in this lesson,
+we wrote our event handlers right in our JSX. Those inline event handlers work perfectly fine, but when we want to do something more interesting than 
+just calling the state setter with a static value, it’s a good idea to separate that logic from everything else going on in our JSX. This separation 
+of concerns makes our code easier to read, test, and modify.
+
+This is so common in React code, that we can comfortably simplify this:
+
+const handleChange = (event) => {
+  const newEmail = event.target.value;
+  setEmail(newEmail);
+}
+To this:
+
+const handleChange = (event) => setEmail(event.target.value);
+Or even, use object destructuring to just write this:
+
+const handleChange = ({target}) => setEmail(target.value);
+All three of these code snippets behave the same way, so there really isn’t a right and wrong between these different ways of doing this. 
+We’ll use the last, most concise version moving forward.
+
+import React, { useState } from 'react';
+
+// regex to match numbers between 1 and 10 digits long
+const validPhoneNumber = /^\d{1,10}$/;
+
+export default function PhoneNumber() {
+  const [phone, setPhone] = useState('');
+
+  const handleChange = ({ target })=> {
+    const newPhone = target.value;
+    const isValid = validPhoneNumber.test(newPhone);
+    if (isValid) {
+        setPhone(newPhone); 
+    }
+    // just ignore the event, when new value is invalid
+  };
+
+  return (
+    <div className='phone'>
+      <label for='phone-input'>Phone: </label>
+      <input id='phone-input' value={phone} onChange={handleChange} />
+    </div>
+  );
+}
