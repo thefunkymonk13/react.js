@@ -1,0 +1,57 @@
+The most common Hook used for building React components. 
+
+The State Hook is a named export from the React library, so we import it like this:
+
+import React, { useState } from 'react';
+
+useState() is a JavaScript function defined in the React library. When we call this function, it returns an array with two values:
+
+1.) current state - the current value of this state
+2.) state setter - a function that we can use to update the value of this state
+
+Because React returns these two values in an array, we can assign them to local variables, naming them whatever we like. For example:
+
+const [toggle, setToggle] = useState();
+
+Let’s have a look at an example of a function component using the State Hook:
+
+import React, { useState } from "react";
+ 
+function Toggle() {
+  const [toggle, setToggle] = useState();
+ 
+  return (
+    <div>
+      <p>The toggle is {toggle}</p>
+      <button onClick={() => setToggle("On")}>On</button>
+      <button onClick={() => setToggle("Off")}>Off</button>
+    </div>
+  );
+}
+
+COLOR PICKER
+import React, { useState } from 'react';
+
+export default function ColorPicker() {
+  const [color, setColor] = useState();
+
+ const divStyle = {backgroundColor: color};
+
+  return (
+    <div style={divStyle}>
+      <p>The color is {color}</p>
+      <button onClick={() => setColor('Aquamarine')}>
+        Aquamarine
+      </button>
+      <button onClick={() => setColor('BlueViolet')}>
+        BlueViolet
+      </button>
+      <button onClick={() => setColor('Chartreuse')}>
+        Chartreuse
+      </button>
+      <button onClick={() => setColor('CornflowerBlue')}>
+        CornflowerBlue
+      </button>
+    </div>
+  );
+}
